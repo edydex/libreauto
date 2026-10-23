@@ -23,8 +23,9 @@ TOP_FILES = (
     "CONTRIBUTING.md", "CHANGELOG.md",
     "build.gradle.kts", "settings.gradle.kts", "gradle.properties", "gradlew", "gradlew.bat",
     "app/build.gradle.kts", "projection/build.gradle.kts", "projection/consumer-rules.pro",
+    "projection/LICENSE", "projection/README.md",
 )
-SOURCE_TREES = ("app/src", "projection/src", "third_party", "gradle/wrapper", "docs", "tools", ".github")
+SOURCE_TREES = ("app/src", "projection/src", "projection/docs", "third_party", "gradle/wrapper", "docs", "tools", ".github")
 # These guides are already verified source members. No arbitrary documentation tree,
 # private report or future file is copied beside the outer release README.
 PUBLIC_DOCS = (
