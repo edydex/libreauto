@@ -46,9 +46,13 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install matching Android SDK packages
-        run: |
-          sdkmanager --install "platforms;android-36" "build-tools;35.0.1" "platform-tools"
+      - name: Set up matching Android SDK packages
+        uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4.0.4
+        with:
+          cmdline-tools-version: "15859902"
+          accept-android-sdk-licenses: "true"
+          log-accepted-android-sdk-licenses: "false"
+          packages: "platform-tools platforms;android-36 build-tools;35.0.1"
 
       - name: Test Python tools
         run: |
@@ -59,7 +63,7 @@ jobs:
         run: |
           # This uses an ephemeral CI debug key. It is not a compatible release update.
           ./gradlew --no-daemon --console=plain --stacktrace --continue \
-            :app:assembleDebug \
+            :app:assembleDebug :app:assembleDebugAndroidTest \
             :app:testDebugUnitTest :projection:testDebugUnitTest \
             :app:lintDebug :projection:lintDebug \
             2>&1 | tee ci-reports/gradle.txt
@@ -81,8 +85,9 @@ jobs:
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<'SCOPE'
 
-          These checks build the app and run local unit tests, Python tool tests and
-          Android lint. They do not test a physical phone, Bluetooth stereo, car,
+          These checks build the app and its device-test APK, and run local unit
+          tests, Python tool tests and Android lint. Device tests are compiled,
+          not executed. The checks do not test a physical phone, Bluetooth stereo, car,
           microphone, GPS or projected head-unit session.
 
           Only reports are uploaded. The CI APK uses an ephemeral debug signer and
