@@ -1,0 +1,20 @@
+Offline addresses, named streets and places
+
+Data: © OpenStreetMap contributors.
+License: Open Data Commons Open Database License (ODbL).
+Copyright/source notice: https://www.openstreetmap.org/copyright
+ODbL: https://opendatacommons.org/licenses/odbl/1-0/
+
+Runtime extracts are requested separately by the user. No OSM address database
+or extract is embedded in this APK/source delivery. Derived databases retain
+the ODbL obligations if distributed; the GPL code license does not relicense data.
+
+Default Overpass service: Private.coffee
+https://overpass.private.coffee/
+Terms dated 10 April 2026 permit application use and require fair resource use,
+meaningful project identification, OpenStreetMap credit and appropriate privacy
+information. The service sees the selected region and connection metadata.
+https://overpass.private.coffee/#privacy-policy
+
+The address index is incomplete OSM coverage, not a guarantee that every address
+or place is searchable. Way/relation centers are approximate, not entrances.

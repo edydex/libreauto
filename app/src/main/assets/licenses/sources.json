@@ -1,0 +1,134 @@
+[
+  {
+    "file": "LGPL-2.1.txt",
+    "source": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt",
+    "bytes": 26419,
+    "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+  },
+  {
+    "file": "MapLibre-BSD-2-Clause.txt",
+    "source": "https://raw.githubusercontent.com/maplibre/maplibre-native/android-v13.7.1/LICENSE.md",
+    "bytes": 1374,
+    "sha256": "554cff8b6f6d2e77629e8c6eab769844ab86adc610ca2d60401ba2e0dce3c229"
+  },
+  {
+    "file": "MapLibre-Android-Third-Party-Licenses.md",
+    "source": "https://raw.githubusercontent.com/maplibre/maplibre-native/android-v13.7.1/platform/android/LICENSE.md",
+    "bytes": 76774,
+    "sha256": "db3cc41e2c79f394a1dddd890c55c263426175029a898d5167820498ddebf152"
+  },
+  {
+    "file": "MapLibre-Core-Third-Party-Licenses.md",
+    "source": "https://raw.githubusercontent.com/maplibre/maplibre-native/android-v13.7.1/LICENSES.core.md",
+    "bytes": 62955,
+    "sha256": "751ce813c861e62623cceffc394d9dc2ec7401735761eb58c93610a3dece25ba"
+  },
+  {
+    "file": "AndroidX-Apache-2.0.txt",
+    "source": "https://raw.githubusercontent.com/androidx/androidx/androidx-main/LICENSE.txt",
+    "bytes": 10175,
+    "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0"
+  },
+  {
+    "file": "Kotlin-License.txt",
+    "source": "https://raw.githubusercontent.com/JetBrains/kotlin/v2.2.20/license/LICENSE.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "Kotlin-Notice.txt",
+    "source": "https://raw.githubusercontent.com/JetBrains/kotlin/v2.2.20/license/NOTICE.txt",
+    "bytes": 482,
+    "sha256": "0b09a83d3ef7795c7dec65e815866597c066c53898f2852a76599b8f5552941a"
+  },
+  {
+    "file": "LibVLC-LGPL-2.1.txt",
+    "source": "https://code.videolan.org/api/v4/projects/2405/repository/files/libvlc%2FCOPYING.LIB/raw?ref=0b8dc65efb203c86a0476bc337ddd99ecf1c0ef6",
+    "bytes": 26530,
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+  },
+  {
+    "file": "LibVLC-Source-License.txt",
+    "source": "https://code.videolan.org/api/v4/projects/2405/repository/files/LICENSE/raw?ref=0b8dc65efb203c86a0476bc337ddd99ecf1c0ef6",
+    "bytes": 26525,
+    "sha256": "814cf1a7e79dc6a3eda3d197fa7ded36c3b733917ed5da1e8cc135eb24f3ac09"
+  },
+  {
+    "file": "Apache-2.0.txt",
+    "source": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "CC0-1.0.txt",
+    "source": "https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt",
+    "bytes": 7048,
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+  },
+  {
+    "file": "VLC-Native-COPYING.txt",
+    "source": "https://code.videolan.org/api/v4/projects/435/repository/files/COPYING/raw?ref=84177b2273abc5c4300234e6e18b55a4d2dd5a03",
+    "bytes": 18092,
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+  },
+  {
+    "file": "VLC-Native-COPYING.LIB.txt",
+    "source": "https://code.videolan.org/api/v4/projects/435/repository/files/COPYING.LIB/raw?ref=84177b2273abc5c4300234e6e18b55a4d2dd5a03",
+    "bytes": 26530,
+    "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+  },
+  {
+    "file": "OkHttp-License.txt",
+    "source": "https://raw.githubusercontent.com/square/okhttp/parent-4.12.0/LICENSE.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "Gson-License.txt",
+    "source": "https://raw.githubusercontent.com/google/gson/gson-parent-2.10.1/LICENSE",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "Timber-License.txt",
+    "source": "https://raw.githubusercontent.com/JakeWharton/timber/5.0.1/LICENSE.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "Coroutines-License.txt",
+    "source": "https://raw.githubusercontent.com/Kotlin/kotlinx.coroutines/1.10.2/LICENSE.txt",
+    "bytes": 11398,
+    "sha256": "b1febe6399dffb10d19d35e7663ab16300c93cb0476a94115df1cc0097a8ffd8"
+  },
+  {
+    "file": "Okio-License.txt",
+    "source": "https://raw.githubusercontent.com/square/okio/parent-3.6.0/LICENSE.txt",
+    "bytes": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "file": "MapLibre-Gestures-BSD-2-Clause.txt",
+    "source": "https://raw.githubusercontent.com/maplibre/maplibre-gestures-android/0.0.4/LICENSE.md",
+    "bytes": 3503,
+    "sha256": "e82169bcba4d61ddb2d838aa154d153517e227efb07a60668efbcc472b18773f"
+  },
+  {
+    "file": "GPL-3.0.txt",
+    "source": "BluetoothAuto/LICENSE (GNU GPL version 3 text)",
+    "bytes": 35149,
+    "sha256": "a41d5eb5b91658c667ca00ced67758a617aebd0db8030c93d5683707a7a26444"
+  },
+  {
+    "file": "LibVLC-Java-Copyright.txt",
+    "source": "https://repo.maven.apache.org/maven2/org/videolan/android/libvlc-all/3.7.7/libvlc-all-3.7.7-sources.jar#org/videolan/libvlc/LibVLC.java",
+    "bytes": 1200,
+    "sha256": "85b9c145dad60fb352a64f60d29396623da730f27e89fa29ca81077d9530dbc7"
+  },
+  {
+    "file": "MapLibre-Java-License.txt",
+    "source": "https://raw.githubusercontent.com/maplibre/maplibre-java/6.0.1/LICENSE",
+    "bytes": 1073,
+    "sha256": "16a8402927b346cd8718517374aacf5ab9ac7e9ef02ffe8c41f2bef697e013a3"
+  }
+]

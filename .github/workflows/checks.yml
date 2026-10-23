@@ -1,0 +1,106 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android-and-tools:
+    name: Build, unit tests and lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Java 17
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+          cache-read-only: ${{ github.event_name == 'pull_request' }}
+          cache-dependency-path: |
+            **/*.gradle.kts
+            gradle.properties
+            gradle/wrapper/gradle-wrapper.properties
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Install matching Android SDK packages
+        run: |
+          sdkmanager --install "platforms;android-36" "build-tools;35.0.1" "platform-tools"
+
+      - name: Test Python tools
+        run: |
+          mkdir -p ci-reports
+          python -m unittest discover -s tools/tests -v 2>&1 | tee ci-reports/python-tests.txt
+
+      - name: Build Android app, run unit tests and lint
+        run: |
+          # This uses an ephemeral CI debug key. It is not a compatible release update.
+          ./gradlew --no-daemon --console=plain --stacktrace --continue \
+            :app:assembleDebug \
+            :app:testDebugUnitTest :projection:testDebugUnitTest \
+            :app:lintDebug :projection:lintDebug \
+            2>&1 | tee ci-reports/gradle.txt
+
+      - name: Verify and summarize unit-test reports
+        if: ${{ always() && !cancelled() }}
+        run: |
+          reports_status=0
+          python tools/verify_unit_reports.py \
+            --json ci-reports/unit-tests.json \
+            --summary ci-reports/unit-tests.md || reports_status=$?
+          if [[ -f ci-reports/unit-tests.md ]]; then
+            cat ci-reports/unit-tests.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$reports_status"
+
+      - name: Record check scope
+        if: ${{ always() && !cancelled() }}
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'SCOPE'
+
+          These checks build the app and run local unit tests, Python tool tests and
+          Android lint. They do not test a physical phone, Bluetooth stereo, car,
+          microphone, GPS or projected head-unit session.
+
+          Only reports are uploaded. The CI APK uses an ephemeral debug signer and
+          must not be offered as an update to the separately tested release APK.
+          SCOPE
+
+      - name: Upload reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: check-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: warn
+          path: |
+            ci-reports/
+            app/build/test-results/testDebugUnitTest/*.xml
+            projection/build/test-results/testDebugUnitTest/*.xml
+            app/build/reports/tests/testDebugUnitTest/
+            projection/build/reports/tests/testDebugUnitTest/
+            app/build/reports/lint-results-debug.*
+            projection/build/reports/lint-results-debug.*

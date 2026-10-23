@@ -1,0 +1,4 @@
+73408906d3e5226b76a3649051221c7faadb076fac25013feb600821b923f05e  app/src/main/assets/offline-routing/LICENSE
+cbcaa6e795e7f1f0b2299569169b34b7821438caa157bf4b6b44d0a8cb2f1cef  app/src/main/assets/offline-routing/car-fast.brf
+51687485db64db883a76e349852c12a7591bb041932b99980b682f74733a8c41  app/src/main/assets/offline-routing/car-vario.brf
+bf8fc3b2c052b7204e9c5a8d78e4d6ab6b125d3236a943f34583b838c477f419  app/src/main/assets/offline-routing/lookups.dat

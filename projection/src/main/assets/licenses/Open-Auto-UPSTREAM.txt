@@ -1,0 +1,11 @@
+# Upstream and scope
+
+This experimental client derives from [mretallack/AndroidAuto](https://github.com/mretallack/AndroidAuto), commit `366ee5fee58f7ddeee7f824ff167853b5ea1d0cf`, under GPL-3.0. The original GPL license is retained. Protocol framing and channel implementations are derived GPL code; our changes remain GPL-3.0.
+
+This history-free source import excludes upstream PEM certificates/private keys, the original upstream credential-extraction utilities, protocol-specification caches, firmware analysis and unrelated research documents. No Google client identity is distributed. The optional compatibility mode reads the supported user-installed Android Auto package locally and prepares its identity only in memory; no extracted identity accompanies this project. The debug development identity remains separate. See app/src/main/java/org/openandroidauto/identity/IDENTITY-PROVENANCE.md. Acceptance by a production head unit must be established separately.
+
+The initial target is the official Desktop Head Unit with a native rendered dashboard, genuine touch input and bounded video/audio queues. A green test or local test connection is not proof of production-car compatibility.
+
+Microphone message direction and field layouts were checked against the GPL-3.0-or-later `f1xpl/aasdk` source at commit `046b3b381595509d0939fa84b14a90978f46ff63`, Copyright2018 f1x.studio (Michal Szwaj). No private credentials from that repository are included.
+
+This lightweight project is a separate source copy of the full prototype. It excludes its assistant integrations, recognizer/model loader, JNI speech dependency, accessibility services and shell/Shizuku helper. The full prototype is preserved separately.

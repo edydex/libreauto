@@ -1,0 +1,28 @@
+Open Auto Lite development prototype: software notices
+
+Project source and modifications: GPL3. See Open-Auto-GPL-3.0.txt and
+Open-Auto-UPSTREAM.txt for the retained license and upstream acknowledgments.
+
+MapLibre Native Android13.7.1: BSD2. The exact android-v13.7.1 release's primary
+license, complete native notice aggregate and Android notice aggregate are
+retained in the three MapLibre-13.7.1 files beside this inventory. They preserve
+the upstream MapLibre, MapTiler, Mapbox and bundled dependency notices intact.
+
+Kotlin standard library2.2.20: Apache2; exact v2.2.20 license retained.
+Kotlin coroutines Android/core1.10.2: Apache2; exact1.10.2 license retained,
+including its upstream copyright appendix.
+AndroidX core/core-ktx1.13.1: Apache2. The full Apache2 terms are in
+Kotlin-2.2.20-Apache-2.0.txt; exact published-source copyright lines are retained
+in the two AndroidX copyright files.
+
+Artifact-supplied notices, including okhttp3/internal/publicsuffix/NOTICE, are
+retained in the APK. Software notices are separate from the map-data attribution
+displayed by the map SDK and from separately installed applications.
+
+The source snapshot includes third_party/README.md with version-pinned primary
+license URLs and SDK provenance. No dependency private identity or signing key
+is distributed by this project.
+
+The production installed-AA identity relationship reader retains GPL upstream
+ExtractKey attribution and AOSP Apache2 decoder provenance in
+identity/IDENTITY-PROVENANCE.md. It ships no extracted payload, key or certificate.

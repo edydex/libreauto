@@ -1,0 +1,45 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <queries><package android:name="com.google.android.apps.maps" /><package android:name="com.google.android.projection.gearhead" /><package android:name="moe.shizuku.privileged.api" /><intent><action android:name="android.intent.action.TTS_SERVICE" /></intent></queries>
+    <application android:name=".LibreAutoApplication" android:label="LibreAuto" android:icon="@drawable/ic_app"
+        android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true"
+        android:usesCleartextTraffic="false">
+        <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTask">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity>
+        <activity android:name=".MusicLibraryActivity" android:exported="false" />
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".CarDisplaySettingsActivity" android:exported="false" />
+        <activity android:name=".CarProfilesActivity" android:exported="false" />
+        <activity android:name=".PreparedMapsActivity" android:exported="false" />
+        <activity android:name=".navigation.OwnMapsActivity" android:exported="false" />
+        <service android:name=".BluetoothAutoService" android:exported="false" android:foregroundServiceType="mediaPlayback|location">
+            <intent-filter><action android:name="android.intent.action.MEDIA_BUTTON" /></intent-filter>
+        </service>
+        <receiver android:name=".MediaButtonReceiver" android:exported="true">
+            <intent-filter><action android:name="android.intent.action.MEDIA_BUTTON" /></intent-filter>
+        </receiver>
+        <receiver android:name=".integration.CarProfileReceiver" android:exported="true" android:enabled="false">
+            <intent-filter>
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".MapsNotificationListener" android:label="LibreAuto · navigation &amp; messages"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" android:exported="true">
+            <intent-filter><action android:name="android.service.notification.NotificationListenerService" /></intent-filter>
+        </service>
+        <provider android:name="org.bluetoothauto.integration.OfficialAutoShizukuProvider"
+            android:authorities="${applicationId}.shizuku" android:exported="true"
+            android:multiprocess="false" android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    </application>
+</manifest>

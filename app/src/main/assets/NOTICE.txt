@@ -1,0 +1,36 @@
+BluetoothAuto 0.2.0 preview
+
+Independent open-source test app. Not affiliated with Google or VideoLAN.
+
+App source: GPL-3.0-or-later.
+LibVLC Android 3.7.7 binding: LGPL-2.1-or-later; native VLC/contrib components retain their upstream licenses. See packaged licenses and UPSTREAM.md.
+MapLibre Native Android 13.7.1: BSD-2-Clause.
+Maps: OpenFreeMap, OpenMapTiles, OpenStreetMap contributors; OSM data is ODbL. Attribution is retained on map artwork.
+AndroidX and Kotlin retain their upstream licenses.
+
+Google Maps is installed separately. Android notification access allows our app to process Maps navigation notifications; their format can change. Maps is inspected for navigation. When message speech is enabled, fresh Messages, Telegram and Signal notifications are inspected too. No notification history or media files are uploaded by BluetoothAuto. Optional speech uses Android’s selected text-to-speech engine. Map requests go to OpenFreeMap for the selected surrounding area. Open maps search sends your query and optional location bias to Photon; routing sends origin/destination and optional route geometry for posted-limit lookup to Valhalla. Google turn-image matching can request surrounding road geometry from Overpass. Saved and recent destinations stay on the phone.
+
+Demo audio: original generated tones, CC0. Demo uses a labeled public Seattle point.
+
+Google does not supply a full route through its notification. Where a named turn, distance and moving GPS course uniquely match a connected OpenStreetMap junction, that local path can be highlighted. Ambiguous matches keep the direction card. Open maps uses its actual route geometry.
+
+Source and build instructions accompany the APK. Upstream:
+https://github.com/videolan/vlc-android
+https://code.videolan.org/videolan/libvlcjni
+https://github.com/maplibre/maplibre-native
+https://openfreemap.org
+https://www.openstreetmap.org/copyright
+
+LibreAuto 0.3.0-preview.1 integration
+
+LibreAuto combines this BluetoothAuto player with the optional OpenAuto Lite car-display module. The Android application ID remains org.bluetoothauto for compatible in-place upgrades. The player is the launcher; projection is an explicit, separate resource owner and stays stopped in Bluetooth mode.
+
+OpenAuto Lite derives from mretallack/AndroidAuto, commit 366ee5fee58f7ddeee7f824ff167853b5ea1d0cf, under GPL-3.0. Microphone protocol checks also reference f1xpl/aasdk, commit 046b3b381595509d0939fa84b14a90978f46ff63, GPL-3.0-or-later, Copyright 2018 f1x.studio (Michal Szwaj). The retained Open-Auto-UPSTREAM and GPL notices accompany the module. This bundle excludes the earlier full prototype's assistant and accessibility harnesses, speech recognition model and desktop testing Lab.
+
+Optional installed-Android-Auto compatibility reads only the pinned, separately installed Android Auto 17.8.663874 variant. No Google APK, private key or extracted identity is distributed. Unsupported versions fail closed. See projection/src/main/java/org/openandroidauto/identity/IDENTITY-PROVENANCE.md in the accompanying source for exact ExtractKey and AOSP decoder provenance. Keep official Android Auto installed for this path.
+
+The optional, fixed-package Android Auto enable-state switch uses Shizuku API/provider 13.1.5, MIT: https://github.com/RikkaApps/Shizuku-API . Its license is retained as licenses/Shizuku-API-MIT.txt. This is a new bounded switching integration, separate from the excluded historical assistant helper. It starts only for an explicit manual or opted-in paired-car mode change, records Android Auto's previous state and restores only its owned change. It runs through approved ADB-shell Shizuku, without root; debugging-based Shizuku normally needs restarting after reboot.
+
+Projection's offline routing embeds the unchanged BRouter 1.7.10 Java core (MIT), commit 4d2639af77ea5ed9c30d3e400764eb6f9e8522da. Its source, profiles and notices are in third_party/brouter and the module's licenses/brouter assets. Graphs, map downloads and address data are obtained separately and retain their map-data attribution and licenses; see the retained Offline-Address-Data-NOTICE. These offline components belong to the car-display navigation module; the Bluetooth player's Open maps pipeline retains its own online routing and prepared-map behavior.
+
+Paired-car profiles are optional and disabled by default. They use selected, already-paired Bluetooth devices rather than scanning or identifying cars from Wi-Fi. Sharing the APK does not include the user's playlists, media, saved locations, car profiles, preferences or private test evidence. See the accompanying README, UPSTREAM and TESTED files for setup, provenance and the actual acceptance boundary of this build.

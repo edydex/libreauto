@@ -1,0 +1,25 @@
+Historical Open Auto Lite 0.4 projection dependency summary.
+
+This retained record describes the projection module before the LibreAuto merge,
+not the complete unified application's dependency graph. The host adds LibVLC
+3.7.7 and Shizuku API/provider 13.1.5. See app/build.gradle.kts,
+projection/build.gradle.kts and UPSTREAM.md for current declarations/notices.
+
+Direct declarations:
+  org.maplibre.gl:android-sdk:13.7.1
+  org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0
+  androidx.core:core-ktx:1.13.1
+
+The accepted build's MapLibre dependency raises coroutines Android/core to 1.10.2.
+The Kotlin plugin/standard library version is 2.2.20. Exact notices for these
+components and MapLibre's native/transitive components are retained in
+projection/src/main/assets/licenses/ and described in third_party/README.md.
+
+This summary distinguishes declarations from resolved versions; it is not a
+complete transitive dependency lockfile. Gradle's releaseRuntimeClasspath
+dependency report is the authority for a new build's complete resolved graph.
+
+The retained Lite core has no Vosk, JNA or Shizuku dependency and no bridge source set;
+the unified LibreAuto host does include its separate optional Shizuku integration.
+The separately built optional Open Auto Dictation add-on has its own Vosk/JNA
+dependencies and notices; its model is not bundled in either APK or source.

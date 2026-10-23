@@ -1,0 +1,26 @@
+.gradle/
+.kotlin/
+build/
+app/build/
+local.properties
+private/
+evidence/
+ci-reports/
+# Retired single-app packager; use tools/package_libreauto.py.
+tools/package_preview.py
+outputs/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.apk
+*.aab
+*.jks
+*.keystore
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+.DS_Store

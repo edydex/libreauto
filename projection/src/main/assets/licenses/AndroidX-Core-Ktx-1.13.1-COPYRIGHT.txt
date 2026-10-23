@@ -1,0 +1,9 @@
+Copyright lines retained from the exact published AndroidX-Core-Ktx-1.13.1 sources artifact.
+Shared terms: Kotlin-2.2.20-Apache-2.0.txt (Apache License2.0).
+
+* Copyright (C) 2017 The Android Open Source Project
+* Copyright (C) 2018 The Android Open Source Project
+* Copyright (C) 20188 The Android Open Source Project
+* Copyright (C) 2019 The Android Open Source Project
+* Copyright 2018 The Android Open Source Project
+* Copyright 2022 The Android Open Source Project

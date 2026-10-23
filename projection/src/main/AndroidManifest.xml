@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.usb.accessory" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Optional Calls setup requests these only after the user's explicit phone-side opt-in. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Separate default-OFF New SMS setup; installer policy may restrict this grant. -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- Optional separately installed, same-signer dictation add-on; no phone microphone access. -->
+    <uses-permission android:name="org.openandroidauto.dictation.permission.DICTATE" />
+    <queries>
+        <intent><action android:name="android.intent.action.TTS_SERVICE" /></intent>
+        <package android:name="com.google.android.projection.gearhead" />
+        <package android:name="com.google.android.apps.messaging" />
+        <package android:name="com.android.messaging" />
+        <package android:name="com.samsung.android.messaging" />
+        <package android:name="org.telegram.messenger" />
+        <package android:name="org.telegram.messenger.web" />
+        <package android:name="org.thoughtcrime.securesms" />
+        <package android:name="org.openandroidauto.dictation" />
+    </queries>
+    <application>
+        <activity android:name="org.openandroidauto.MainActivity" android:exported="false"
+            android:theme="@android:style/Theme.Material.NoActionBar" android:launchMode="singleTop" />
+        <!-- The host enables this alias only for an explicitly selected LibreAuto mode.
+             It is disabled by default, so installing the player cannot claim USB cars. -->
+        <activity-alias android:name="org.openandroidauto.UsbProjectionEntry"
+            android:targetActivity="org.openandroidauto.MainActivity" android:enabled="false" android:exported="true">
+            <intent-filter><action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" /></intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" android:resource="@xml/usb_accessory_filter" />
+        </activity-alias>
+        <activity android:name="org.openandroidauto.media.AudioLibraryActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.navigation.DestinationManagerActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.navigation.SavedPlacesActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.offline.OfflineMapsActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.calls.CallsSettingsActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.sms.SmsSettingsActivity" android:exported="false" />
+        <activity android:name="org.openandroidauto.PreviewActivity" android:exported="false" android:screenOrientation="landscape" />
+        <service android:name="org.openandroidauto.ProjectionService" android:exported="false"
+            android:foregroundServiceType="connectedDevice|location" />
+        <service android:name="org.openandroidauto.notifications.MessagingNotificationListener"
+            android:label="LibreAuto · car-screen messages" android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter><action android:name="android.service.notification.NotificationListenerService" /></intent-filter>
+        </service>
+    </application>
+</manifest>

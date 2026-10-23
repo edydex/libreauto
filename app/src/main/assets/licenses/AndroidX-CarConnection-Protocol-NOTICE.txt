@@ -1,0 +1,14 @@
+LibreAuto official Android Auto connection observer
+
+The public CarConnection protocol constants and provider/broadcast behavior were
+verified against AndroidX Car App source on 2026-10-21:
+https://github.com/androidx/androidx/blob/androidx-main/car/app/app/src/main/java/androidx/car/app/connection/CarConnection.java
+https://github.com/androidx/androidx/blob/androidx-main/car/app/app/src/main/java/androidx/car/app/connection/CarConnectionTypeLiveData.java
+
+Referenced AndroidX sources:
+Copyright 2021 The Android Open Source Project
+Licensed under Apache License, Version 2.0; see Apache-2.0.txt in this directory.
+
+LibreAuto uses an original lightweight observer implementation and does not bundle
+the AndroidX Car App library. Package verification, bounded cancellable queries,
+last-confirmed-state handling and player-scoped observation are implemented locally.
